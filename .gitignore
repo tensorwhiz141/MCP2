@@ -176,3 +176,5 @@ cython_debug/
 # Netlify specific
 .netlify
 node_modules/
+
+.env
