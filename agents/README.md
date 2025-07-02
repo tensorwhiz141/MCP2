@@ -1,0 +1,1 @@
+The agents folder defines autonomous components (agents) for handling various tasks. Each agent extends BaseMCPAgent and registers capabilities such as scheduling, email, or data processing. These agents can intercommunicate and be orchestrated through the MCP system.

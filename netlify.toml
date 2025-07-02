@@ -1,0 +1,91 @@
+[build]
+  publish = "public"
+  command = "npm install && node update_env.js"
+
+[functions]
+  node_bundler = "esbuild"
+  external_node_modules = ["mongoose"]
+
+  # Increase the function timeout to the maximum allowed
+  [functions.process-document]
+    timeout = 30
+
+  [functions.search]
+    timeout = 30
+
+  [functions.live-data]
+    timeout = 30
+
+[[redirects]]
+  from = "/api/mongodb-status"
+  to = "/.netlify/functions/mongodb-status"
+  status = 200
+
+[[redirects]]
+  from = "/api/mock-image"
+  to = "/.netlify/functions/mock-image"
+  status = 200
+
+[[redirects]]
+  from = "/api/mock-pdf"
+  to = "/.netlify/functions/mock-pdf"
+  status = 200
+
+[[redirects]]
+  from = "/api/process-document"
+  to = "/.netlify/functions/process-document-simple"
+  status = 200
+
+[[redirects]]
+  from = "/api/search"
+  to = "/.netlify/functions/search-simple"
+  status = 200
+
+[[redirects]]
+  from = "/api/live-data"
+  to = "/.netlify/functions/live-data-simple"
+  status = 200
+
+[[redirects]]
+  from = "/api/process-image"
+  to = "/.netlify/functions/process-image"
+  status = 200
+
+[[redirects]]
+  from = "/api/process-pdf"
+  to = "/.netlify/functions/process-pdf"
+  status = 200
+
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/proxy/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/"
+  to = "/index-new.html"
+  status = 200
+
+[[redirects]]
+  from = "/index.html"
+  to = "/index-new.html"
+  status = 200
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Headers to enable CORS
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
+    Access-Control-Allow-Methods = "GET, POST, PUT, DELETE, OPTIONS"
+    Access-Control-Allow-Headers = "Origin, X-Requested-With, Content-Type, Accept"
+
+[dev]
+  framework = "#static"
+
+[[plugins]]
+  package = "@netlify/plugin-functions-install-core"
