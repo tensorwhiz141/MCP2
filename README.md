@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # MCP
 
 ## 📌 Functionality:
@@ -17,3 +18,6 @@
    ```bash
    git clone https://github.com/Nisarg-123-web/MCP.git
    cd MCP
+=======
+# MCP2
+>>>>>>> 7f0deebef42546c1ce5275375ffb60b4e13f4c21
